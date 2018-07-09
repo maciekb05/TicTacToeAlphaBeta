@@ -75,7 +75,7 @@ public class Board {
         for(int i = 0; i < SIZE; i++) {
             for(int j = 0; j < SIZE; j++) {
                 if(gameBoard.get(i).get(j) == XOSign.X || gameBoard.get(i).get(j) == XOSign.O) {
-                    if(checkWinForPositon(new Position(i, j))) {
+                    if(checkWinForPosition(new Position(i, j))) {
                         System.out.println("The winner is: "+ gameBoard.get(i).get(j));
                         return true;
                     }
@@ -90,7 +90,7 @@ public class Board {
         for(int i = 0; i < SIZE; i++) {
             for(int j = 0; j < SIZE; j++) {
                 if(gameBoard.get(i).get(j) == XOSign.X || gameBoard.get(i).get(j) == XOSign.O) {
-                    if(checkWinForPositon(new Position(i, j))) {
+                    if(checkWinForPosition(new Position(i, j))) {
                         return gameBoard.get(i).get(j);
                     }
                 }
@@ -98,18 +98,6 @@ public class Board {
         }
 
         return XOSign.NOTHING;
-    }
-
-    public boolean notFull() {
-        for(int i = 0; i < SIZE; i++) {
-            for(int j = 0; j < SIZE; j++) {
-                if(gameBoard.get(i).get(j) == XOSign.NOTHING) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 
     private boolean positionIsInBoard(Position position) {
@@ -171,9 +159,7 @@ public class Board {
         return stringBuilder.toString();
     }
 
-    private boolean checkWinForPositon(Position position) {
-        XOSign sign = gameBoard.get(position.getPositionX()).get(position.getPositionY());
-
+    private boolean checkWinForPosition(Position position) {
         return  checkDirectionForWinAtPosition(position,Direction.EAST) ||
                 checkDirectionForWinAtPosition(position,Direction.SOUTH) ||
                 checkDirectionForWinAtPosition(position,Direction.SE) ||

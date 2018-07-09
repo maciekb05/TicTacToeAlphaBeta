@@ -27,6 +27,6 @@ public class Game {
         }
 
         board.printGameBoard();
-        System.out.println("Koniec");
+        System.out.println("The end");
     }
 }

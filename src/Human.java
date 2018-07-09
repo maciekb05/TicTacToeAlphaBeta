@@ -15,20 +15,20 @@ public class Human implements Player {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("Ruch gracza " + charSign + ", wybierz pozycje:");
-        try {
-            String position = reader.readLine();
-            String[] positionSplitted = position.split(" ");
-            Integer posX = Integer.parseInt(positionSplitted[0]);
-            Integer posY = Integer.parseInt(positionSplitted[1]);
-            board.move(new Position(posX - 1, posY - 1), sign);
-            return board;
+        System.out.println("Move of player " + charSign + ", choose position:");
+        while(true) {
+            try {
+                String position = reader.readLine();
+                String[] positionSplitted = position.split(" ");
+                Integer posX = Integer.parseInt(positionSplitted[0]);
+                Integer posY = Integer.parseInt(positionSplitted[1]);
+                board.move(new Position(posX - 1, posY - 1), sign);
+                return board;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                System.out.println("Try again:");
+            }
         }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-
-        return board;
     }
 
 }

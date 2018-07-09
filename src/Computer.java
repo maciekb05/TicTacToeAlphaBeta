@@ -14,7 +14,7 @@ public class Computer implements Player {
 
         System.out.println("Ruch gracza " + charSign + ", wybierz pozycje:");
 
-        int value = minimax(board, true, true, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        minimax(board, true, true, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
         return board;
     }
@@ -131,7 +131,7 @@ public class Computer implements Player {
         if(sign == XOSign.X) {
             return XOSign.O;
         }
-        else if(sign == XOSign.O) {
+        if(sign == XOSign.O) {
             return XOSign.X;
         }
         return XOSign.NOTHING;
